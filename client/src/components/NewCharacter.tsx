@@ -7,7 +7,7 @@ const NewCharacter = () => {
         <Box sx={{margin: "10px"}}>
             <form>
                 <div className="form">
-                <TextField sx={{margin: "10px"}}></TextField>
+                <TextField sx={{margin: "10px"}} />
                 <Button variant="outlined" >Submit New Character</Button>
                 </div>
             </form>

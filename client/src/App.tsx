@@ -19,14 +19,20 @@ function App() {
 
   const handleAddCharacter = () => {
     setNewCharacterButtonClicked(true); 
+    setNewIndividualButtonClicked(false);
+    setNewSightingButtonClicked(false);
   }
 
   const handleAddIndividual = () => {
     setNewIndividualButtonClicked(true); 
+    setNewCharacterButtonClicked(false); 
+    setNewSightingButtonClicked(false); 
   }
 
   const handleAddSighting = () => {
     setNewSightingButtonClicked(true); 
+    setNewIndividualButtonClicked(false); 
+    setNewCharacterButtonClicked(false); 
   }
 
   return (
@@ -52,7 +58,10 @@ function App() {
           <Button variant="outlined" sx={{padding: "10px", margin: "5px"}} onClick={handleAddCharacter}>Add New Character</Button>
           <Button variant="outlined" sx={{padding: "10px", margin: "5px"}} onClick={handleAddIndividual}>Add New Individual</Button>
           <Button variant="outlined" sx={{padding: "10px", margin: "5px"}} onClick={handleAddSighting}>Add A Character Sighting</Button>
-          {newCharacterButtonClicked ? (<NewCharacter />) : (<UserInstructions />) || newIndividualButtonClicked ? (<NewIndividual />) : (<UserInstructions />) || newSightingButtonClicked ? (<NewCharacterSighting />) : (<UserInstructions />)}
+          {newCharacterButtonClicked && <NewCharacter />}
+          {newIndividualButtonClicked && <NewIndividual />}
+          {newSightingButtonClicked && <NewCharacterSighting />}
+          {!newCharacterButtonClicked && !newIndividualButtonClicked && !newSightingButtonClicked && <UserInstructions />}
         </Paper>
       </Box>
     </Container>
