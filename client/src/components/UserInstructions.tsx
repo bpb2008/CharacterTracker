@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box"; 
 import Typography from "@mui/material/Typography";
 
-const UserInstructions = () => {
+const UserInstructions: React.FC = () => {
   return (
     <Box sx={{width: "100$"}}>
           <Typography>How this works:</Typography>

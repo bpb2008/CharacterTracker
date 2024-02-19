@@ -3,7 +3,7 @@ import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import Select from "@mui/material/Select";
 
-const NewIndividual = () => {
+const NewIndividual: React.FC = () => {
     return (
         <Box>
             <form>

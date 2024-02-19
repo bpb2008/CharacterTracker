@@ -2,7 +2,7 @@ import Box from "@mui/material/Box";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 
-const NewCharacter = () => {
+const NewCharacter: React.FC = () => {
     return (
         <Box sx={{margin: "10px"}}>
             <form>

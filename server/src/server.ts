@@ -1,10 +1,14 @@
 import express, { Request, Response } from "express";
 import cors from "cors"; 
 import dotenv from "dotenv";
+import pg from "pg"; 
 
 dotenv.config(); 
+
 const app = express();
-const PORT = 3001;
+app.use(express.json());
+const PORT = process.env.PORT;
+const { Pool } = pg; 
 
 app.use(
   cors({
@@ -13,14 +17,24 @@ app.use(
   })
 );
 
-app.use(express.json());
+const pool = new Pool({
+  connectionString: process.env.LOCALHOST_DATABASE_URL, 
+}); 
 
-app.get("/api/data", async (req: Request, res: Response) => {
-  res.json({ data: "Sample Data1" });
+
+app.get("/characters/search", async (req: Request, res: Response) => {
+  const { name } = req.query; 
+  try {
+    const result = await pool.query("SELECT * FROM characters WHERE name = $1", [name]);
+    res.json(result.rows); 
+  } catch (error) {
+    console.log("Error fetching character data: ", error);
+    res.status(400).json(error); 
+  }
 });
 
 export const server = app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
+  console.log(`Mwahahhahaha! Server running on port ${PORT}`);
 });
 
 export default app;
