@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box"; 
-import Paper from "@mui/material/Paper"; 
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import SearchIcon from "@mui/icons-material/Search"; 
@@ -23,8 +22,7 @@ const CharacterSearch: React.FC = () => {
     };
 
     return (
-        <Box>
-        <Paper sx={{marginBottom: "15px", padding: "10px"}}>
+        <Box sx={{marginBottom: "15px", padding: "10px", display: "flex", flexDirection: "column"}}>
           <TextField 
           onChange={(e) => setSearchName(e.target.value)} 
           value={searchName}
@@ -32,11 +30,10 @@ const CharacterSearch: React.FC = () => {
           label="E.g. 'Mickey Mouse' or 'Epcot'" 
           sx={{display: "flex", flexDirection: "column", margin: "10px"}}
           /> 
-          <Button variant="outlined" onClick={handleSearch} ><SearchIcon sx={{marginRight: "10px"}} />Search Character or Location</Button>
-        </Paper>
-        <Paper sx={{marginBottom: "15px"}} >
+          <Button variant="contained" onClick={handleSearch} ><SearchIcon sx={{marginRight: "10px"}} />Search Character or Location</Button>
+          <Box sx={{marginBottom: "15px"}}>
             <SearchResults /> 
-        </Paper>
+          </Box>
       </Box>
     ); 
 }
