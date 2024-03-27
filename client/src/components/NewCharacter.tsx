@@ -1,5 +1,7 @@
 import Box from "@mui/material/Box"; 
+import Container from "@mui/material/Container"; 
 import TextField from "@mui/material/TextField";
+import FormGroup from "@mui/material/FormGroup"; 
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography"; 
 import { useState } from "react"; 
@@ -33,22 +35,24 @@ const NewCharacter: React.FC = () => {
     }; 
 
     return (
-        <Box sx={{margin: "10px"}}>
-            <Box sx={{width: "300px", marginLeft: "150px", marginTop: "15px", marginBottom: "15px"}}>
+        <Container>
+            <Box sx={{ marginLeft: "200px", marginRight: "50px", marginTop: "15px", marginBottom: "50px"}}>
             <Typography>Enter the common name of the character below. For example, if you've seen Mickey Mouse, no matter what outfit he is wearing, his generic name "Mickey Mouse" should be entered here.</Typography>
             </Box>
+            <Box sx={{marginLeft: "200px"}}>
             <form onSubmit={handleSubmit}>
-                <div className="form">
+                <FormGroup sx={{ display: "flex", flexDirection: "row"}}>
                 <TextField 
                 onChange={(e) => setCharacter(e.target.value)}
-                sx={{margin: "10px"}} 
+                sx={{marginRight: "10px", width: "300px"}} 
                 value={character} 
                 label="Enter Character Name"
                 />
-                <Button variant="outlined" >Submit New Character</Button>
-                </div>
+                <Button variant="contained" sx={{width: "100px", height: "50px"}} >Submit</Button>
+                </FormGroup>
             </form>
-        </Box>
+            </Box>
+        </Container>
     ); 
 }
 

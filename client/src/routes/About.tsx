@@ -4,8 +4,8 @@ import Typography from "@mui/material/Typography";
 
 const About: React.FC = () => {
     return (
-        <Container sx={{marginTop: "50px", marginLeft: "200px", display: "flex", flexDirection: "column", justifyContent: "center"}}>
-            <Box>
+        <Container>
+            <Box sx={{marginTop: "50px", marginLeft: "200px", display: "flex", flexDirection: "column", justifyContent: "center"}}>
             <Typography>
                 Are you a newbie to Walt Disney World or just need an easy way to remember 
                 where and when your favorite characters are available to meet? Do you have a favorite "version" 

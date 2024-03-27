@@ -9,12 +9,13 @@ const Header: React.FC = () => {
         alignItems: "center", 
         justifyContent: "center", 
         width: "100%",
-        marginLeft: "20px"
+        marginLeft: "20px",
+        marginTop: "20px"
     }
 
     return (
-        <Container sx={{...headerStyles}}>
-        <Box>
+        <Container>
+        <Box sx={{...headerStyles}}>
             <Typography variant="h2">Character Tracker</Typography>
         </Box>
         </Container>

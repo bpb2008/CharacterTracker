@@ -22,16 +22,16 @@ const CharacterSearch: React.FC = () => {
     };
 
     return (
-        <Box sx={{marginBottom: "15px", padding: "10px", display: "flex", flexDirection: "column"}}>
+        <Box sx={{marginBottom: "15px", padding: "10px", display: "flex", flexDirection: "row"}}>
           <TextField 
           onChange={(e) => setSearchName(e.target.value)} 
           value={searchName}
           variant="outlined" 
           label="E.g. 'Mickey Mouse' or 'Epcot'" 
-          sx={{display: "flex", flexDirection: "column", margin: "10px"}}
+          sx={{ width: "600px", marginRight: "10px"}}
           /> 
-          <Button variant="contained" onClick={handleSearch} ><SearchIcon sx={{marginRight: "10px"}} />Search Character or Location</Button>
-          <Box sx={{marginBottom: "15px"}}>
+          <Button variant="contained" onClick={handleSearch} sx={{height: "50px", width: "200px"}} ><SearchIcon sx={{marginRight: "10px" }} />Search</Button>
+          <Box>
             <SearchResults /> 
           </Box>
       </Box>
